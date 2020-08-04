@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style type="text/css">
 
 /* On mouse hover, lighten state color */
@@ -71,7 +72,17 @@ http://www.d3noob.org/2013/01/adding-tooltips-to-d3js-graph.html
 Mike Bostock, Pie Chart Legend
 http://bl.ocks.org/mbostock/3888852  */
 
-
+function myAjaxCheck(callback) {
+        $.ajax({
+            type: 'GET',
+            url: 'https://f1rob7szee.execute-api.us-east-1.amazonaws.com/v1/statedata',
+            dataType: 'json',
+            success: function (data) {
+                callback(data);
+            }
+        });
+    }
+	
 //Width and height of map
 var width = document.getElementById("area1").offsetWidth;
 var height = document.getElementById("area1").offsetHeight;
@@ -109,7 +120,9 @@ var div = d3.select("#area1")
     		.style("opacity", 0);
 
 // Load in my states data!
-d3.csv("stateslived.csv", function(data) {
+myAjaxCheck(function(returnedData){ //anonymous callback function
+    data = returnedData;
+    console.log(info);
 
 // Load GeoJSON data and merge with states data
 d3.json("us-states.json", function(json) {
@@ -121,7 +134,7 @@ for (var i = 0; i < data.length; i++) {
 	var dataState = data[i].state;
 
 	// Grab data value
-	var dataValue = data[i].visited;
+	var dataValue = data[i].score;
 
 	// Find the corresponding state inside the GeoJSON
 	for (var j = 0; j < json.features.length; j++)  {
