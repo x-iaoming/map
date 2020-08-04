@@ -195,21 +195,21 @@ svg.selectAll("path")
 	.on("click", show_info);
 	
 function show_info(d){
-travel = d.properties.travel;
-travelurl = d.properties.travelurl;
-mask = d.properties.mask;
-maskurl = d.properties.maskurl;
-if (maskurl){
-maskurl = `<a href="${maskurl}" class="btn btn-primary">Read more</a>`;
-}else{
-maskurl = '';
-}
-if (travelurl){
-maskurl = `<a href="${travelurl}" class="btn btn-primary">Read more</a>`;
-}else{
-travelurl = '';
-}
-name = d.properties.name;
+	travel = d.properties.travel;
+	travelurl = d.properties.travelurl;
+	mask = d.properties.mask;
+	maskurl = d.properties.maskurl;
+	if (maskurl){
+		maskurl = `<a href="${maskurl}" class="btn btn-primary">Read more</a>`;
+	}else{
+		maskurl = '';
+	}
+	if (travelurl){
+		travelurl = `<a href="${travelurl}" class="btn btn-primary">Read more</a>`;
+	}else{
+		travelurl = '';
+	}
+	name = d.properties.name;
 var template = 
 `
 <h1>${name}</h1>
@@ -234,7 +234,7 @@ var template =
   </div>
 </div>
 `;
-document.getElementById("area2").innerHTML = template;
+	document.getElementById("area2").innerHTML = template;
 }
 
 // Map the cities I have lived in!
