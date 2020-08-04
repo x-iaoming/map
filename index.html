@@ -105,8 +105,6 @@ var color = d3.scale.linear()
   .domain([0,100])
   .range(["white", "seagreen"]);
 
-var legendText = ["Cities Lived", "States Lived", "States Visited", "Nada"];
-
 //Create SVG element and append map to the SVG
 var svg = d3.select("#area1")
 			.append("svg")
@@ -134,7 +132,9 @@ for (var i = 0; i < data.length; i++) {
 	var dataState = data[i].state;
 
 	// Grab data value
-	var dataValue = data[i].score;
+	var score = data[i].score;
+	var mask = data[i].mask.text;
+	var maskurl = data[i].mask.url;
 
 	// Find the corresponding state inside the GeoJSON
 	for (var j = 0; j < json.features.length; j++)  {
@@ -143,8 +143,9 @@ for (var i = 0; i < data.length; i++) {
 		if (dataState == jsonState) {
 
 		// Copy the data value into the JSON
-		json.features[j].properties.visited = dataValue;
-
+		json.features[j].properties.score = score;
+		json.features[j].properties.mask = mask;
+		json.features[j].properties.maskurl = maskurl;	
 		// Stop looking through the JSON
 		break;
 		}
@@ -162,7 +163,7 @@ svg.selectAll("path")
 	.style("fill", function(d) {
 	
 	// Get data value
-	var value = d.properties.visited;
+	var value = d.properties.score;
 	return color(value);
 // 	if (value) {
 // 	//If value exists…
@@ -175,7 +176,7 @@ svg.selectAll("path")
     	div.transition()
       	   .duration(200)
            .style("opacity", .9);
-           div.text(d.properties.name+"\n"+d.properties.visited)
+           div.text(d.properties.name+"\n"+d.properties.score)
            .style("left", (d3.event.pageX) + "px")
            .style("top", (d3.event.pageY - 28) + "px");
 	})
@@ -189,7 +190,7 @@ svg.selectAll("path")
 	.on("click", show_info);
 	
 function show_info(d){
-	alert(d.properties.name);
+	document.getElementById("area2").innerHTML = "<a href='"+d.maskurl+"'>" + d.mask + "</a>";
 }
 
 // Map the cities I have lived in!
