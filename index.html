@@ -185,8 +185,12 @@ svg.selectAll("path")
         div.transition()
            .duration(500)
            .style("opacity", 0);
-    });
-
+    	})
+	.on("click", show_info);
+	
+function show_info(d){
+	alert(d.properties.name);
+}
 
 // Map the cities I have lived in!
 // d3.csv("cities-lived.csv", function(data) {
