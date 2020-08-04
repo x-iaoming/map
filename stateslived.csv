@@ -1,51 +1,51 @@
 state,visited
-Alabama,0
-Alaska,0
-Arkansas,0
-Arizona,2
-California,2
-Colorado,1
-Connecticut,1
-Delaware,0
-Florida,0
-Georgia,0
-Hawaii,0
-Iowa,0
-Idaho,1
-Illinois,1
-Indiana,0
-Kansas,0
-Kentucky,0
-Louisiana,0
-Maine,1
-Maryland,1
-Massachusetts,1
-Michigan,0
-Minnesota,1
-Missouri,0
-Mississippi,0
-Montana,1
-North Carolina,0
-North Dakota,0
-Nebraska,0
-New Hampshire,1
-New Jersey,0
-New Mexico,1
-Nevada,1
-New York,2
-Ohio,1
-Oklahoma,0
-Oregon,1
-Pennsylvania,1
-Rhode Island,1
-South Carolina,0
-South Dakota,0
-Tennessee,0
-Texas,0
-Utah,1
-Virginia,0
-Vermont,0
-Washington,1
-Wisconsin,0
-West Virginia,0
-Wyoming,1
+Alabama,100
+Alaska,80
+Arkansas,45
+Arizona,30
+California,70
+Colorado,20
+Connecticut,88
+Delaware,66
+Florida,33
+Georgia,44
+Hawaii,77
+Iowa,84
+Idaho,20
+Illinois,88
+Indiana,98
+Kansas,84
+Kentucky,53
+Louisiana,40
+Maine,23
+Maryland,23
+Massachusetts,54
+Michigan,68
+Minnesota,90
+Missouri,23
+Mississippi,93
+Montana,68
+North Carolina,78
+North Dakota,79
+Nebraska,90
+New Hampshire,47
+New Jersey,60
+New Mexico,32
+Nevada,48
+New York,20
+Ohio,95
+Oklahoma,50
+Oregon,60
+Pennsylvania,55
+Rhode Island,80
+South Carolina,34
+South Dakota,54
+Tennessee,43
+Texas,90
+Utah,97
+Virginia,89
+Vermont,88
+Washington,23
+Wisconsin,76
+West Virginia,45
+Wyoming,60
