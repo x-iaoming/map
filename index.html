@@ -35,6 +35,28 @@ body {
 	left:800px;
 	top:350px;
 }
+	
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
 
 </style>
 </head>
@@ -77,13 +99,13 @@ var color = d3.scale.linear()
 var legendText = ["Cities Lived", "States Lived", "States Visited", "Nada"];
 
 //Create SVG element and append map to the SVG
-var svg = d3.select("body")
+var svg = d3.select("area1")
 			.append("svg")
 			.attr("width", width)
 			.attr("height", height);
 
 // Append Div for tooltip to SVG
-var div = d3.select("body")
+var div = d3.select("area1")
 		    .append("div")
     		.attr("class", "tooltip")
     		.style("opacity", 0);
@@ -219,5 +241,9 @@ svg.selectAll("path")
 
 });
 </script>
+<div class="row">
+	<div id="area1" class="column"></div>
+	<div id="area2" class="column"></div>
+</div>
 </body>
 </html>
