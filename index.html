@@ -80,8 +80,9 @@ http://bl.ocks.org/mbostock/3888852  */
 
 
 //Width and height of map
-var width = 960;
-var height = 500;
+var width = d3.select(#area1).node().getBBox().width;
+var height = d3.select(#area1).node().getBBox().height;
+
 
 // D3 Projection
 var projection = d3.geo.albersUsa()
