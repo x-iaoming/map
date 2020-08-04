@@ -190,7 +190,7 @@ svg.selectAll("path")
 	.on("click", show_info);
 	
 function show_info(d){
-	document.getElementById("area2").innerHTML = "<a href='"+d.maskurl+"'>" + d.mask + "</a>";
+	document.getElementById("area2").innerHTML = "<a href='"+d.properties.maskurl+"'>" + d.properties.mask + "</a>";
 }
 
 // Map the cities I have lived in!
