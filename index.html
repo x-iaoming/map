@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style type="text/css">
@@ -57,7 +58,7 @@ body {
 <body>
 <div class="row">
 	<div id="area1" class="column"></div>
-	<div id="area2" class="column">This is information for the selecte state</div>
+	<div id="area2" class="column">Click on a state to view travel advice</div>
 </div>
 <script type="text/javascript">
 
@@ -190,7 +191,20 @@ svg.selectAll("path")
 	.on("click", show_info);
 	
 function show_info(d){
-	document.getElementById("area2").innerHTML = "<a href='"+d.properties.maskurl+"'>" + d.properties.mask + "</a>";
+var template = 
+`<div class="row">
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Mask</h5>
+        <p class="card-text">${mask}</p>
+        <a href="${maskurl}" class="btn btn-primary">Read more</a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+document.getElementById("area2").innerHTML = template;
 }
 
 // Map the cities I have lived in!
@@ -257,5 +271,9 @@ function show_info(d){
 
 });
 </script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
 </body>
 </html>
