@@ -199,6 +199,12 @@ function show_info(d){
 	travelurl = d.properties.travelurl;
 	mask = d.properties.mask;
 	maskurl = d.properties.maskurl;
+	if (!travel){
+		travel = 'N/A';
+	}
+	if (!mask){
+		mask = 'N/A';
+	}
 	if (maskurl){
 		maskurl = `<a href="${maskurl}" class="btn btn-primary">Read more</a>`;
 	}else{
