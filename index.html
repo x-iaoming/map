@@ -136,6 +136,8 @@ for (var i = 0; i < data.length; i++) {
 	var score = data[i].score;
 	var mask = data[i].mask.text;
 	var maskurl = data[i].mask.url;
+	var travel = data[i].travel.text;
+	var travelurl = data[i].travel.url;
 
 	// Find the corresponding state inside the GeoJSON
 	for (var j = 0; j < json.features.length; j++)  {
@@ -146,7 +148,9 @@ for (var i = 0; i < data.length; i++) {
 		// Copy the data value into the JSON
 		json.features[j].properties.score = score;
 		json.features[j].properties.mask = mask;
-		json.features[j].properties.maskurl = maskurl;	
+		json.features[j].properties.maskurl = maskurl;
+		json.features[j].properties.travel = travel;
+		json.features[j].properties.travelurl = travelurl;	
 		// Stop looking through the JSON
 		break;
 		}
@@ -191,6 +195,10 @@ svg.selectAll("path")
 	.on("click", show_info);
 	
 function show_info(d){
+travel = d.travel;
+travelurl = d.travelurl;
+mask = d.mask;
+maskurl = d.maskurl;
 var template = 
 `<div class="row">
   <div class="col-sm-6">
@@ -199,6 +207,15 @@ var template =
         <h5 class="card-title">Mask</h5>
         <p class="card-text">${mask}</p>
         <a href="${maskurl}" class="btn btn-primary">Read more</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Travel</h5>
+        <p class="card-text">${travel}</p>
+        <a href="${travelurl}" class="btn btn-primary">Read more</a>
       </div>
     </div>
   </div>
