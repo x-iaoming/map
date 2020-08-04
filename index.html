@@ -195,12 +195,15 @@ svg.selectAll("path")
 	.on("click", show_info);
 	
 function show_info(d){
-travel = d.travel;
-travelurl = d.travelurl;
-mask = d.mask;
-maskurl = d.maskurl;
+travel = d.properties.travel;
+travelurl = d.properties.travelurl;
+mask = d.properties.mask;
+maskurl = d.properties.maskurl;
+name = d.properties.name;
 var template = 
-`<div class="row">
+`
+<h1>${name}</h1>
+<div class="row">
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
