@@ -136,8 +136,9 @@ myAjaxCheck(function(returnedData){ //anonymous callback function
     data = returnedData;
     console.log(data);
 
+var url = "https://x-iaoming.github.io/map/us-states.json"
 // Load GeoJSON data and merge with states data
-d3.json("us-states.json", function(json) {
+d3.json(url, function(json) {
 
 // Loop through each state data value in the .csv file
 for (var i = 0; i < data.length; i++) {
