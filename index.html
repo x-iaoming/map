@@ -286,10 +286,10 @@ var linear = d3.scale.linear()
 
 svg.append("g")
   .attr("class", "legendLinear")
-  .attr("transform", "translate(10,10)");
+  .attr("transform", "translate(10,0)");
 
 var legendLinear = d3.legend.color()
-  .shapeWidth(30)
+  .shapeWidth(50)
   .orient('horizontal')
   .scale(linear)
   .title('Openness score');
