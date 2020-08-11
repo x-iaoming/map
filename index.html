@@ -283,7 +283,7 @@ function show_info(d){
         .domain([ 1, 100 ])
         .range(colorbrewer.Blues[9]);
 	
-	var colorLegend = d3.legend.color()
+	var colorLegend = d3.legendColor()
         .labelFormat(d3.format(".0f"))
         .scale(colorScale)
         .shapePadding(5)
