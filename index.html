@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://d3js.org/colorbrewer.v1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.13.0/d3-legend.js"></script>
 
 <style type="text/css">
@@ -281,22 +280,22 @@ function show_info(d){
 //    		  .attr("height", 18)
 //    		  .style("fill", color );
 
-      var colorScale = d3.scale.quantize()
-        .domain([ 1, 100 ])
-        .range(colorbrewer.Blues[9]);
-	
-	var colorLegend = d3.legendColor()
-        .labelFormat(d3.format(".0f"))
-        .scale(colorScale)
-        .shapePadding(5)
-        .shapeWidth(50)
-        .shapeHeight(20)
-        .labelOffset(12);
+var linear = d3.scaleLinear()
+  .domain([0,100])
+  .range(["white", "seagreen"]);
 
-      svg.append("g")
-        .attr("transform", "translate(352, 60)")
-        .call(colorLegend);
+svg.append("g")
+  .attr("class", "legendLinear")
+  .attr("transform", "translate(20,20)");
 
+var legendLinear = d3.legendColor()
+  .shapeWidth(30)
+  .cells(10)
+  .orient('horizontal')
+  .scale(linear);
+
+svg.select(".legendLinear")
+  .call(legendLinear);
 
 //   	legend.append("text")
 //   		  .data(legendText)
