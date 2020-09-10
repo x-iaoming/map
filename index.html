@@ -129,10 +129,7 @@ var projection = d3.geo.albersUsa()
 var path = d3.geo.path() // path generator that will convert GeoJSON to SVG paths
     .projection(projection); // tell path generator to use albersUsa projection
 
-
 // Define linear scale for output
-// var color = d3.scale.linear()
-// 			  .range(["rgb(213,222,217)","rgb(69,173,168)","rgb(84,36,55)","rgb(217,91,67)"]);
 var color = d3.scale.linear()
     .domain([0, 100])
     .range(["white", "seagreen"]);
@@ -193,12 +190,6 @@ myAjaxCheck(function(returnedData) { //anonymous callback function
                 // Get data value
                 var value = d.properties.score;
                 return color(value);
-                // 	if (value) {
-                // 	//If value existsâ€¦
-                // 	return color(value);
-                // 	} else {
-                // 	//If value is undefinedâ€¦
-                // 	return "rgb(213,222,217)";
             })
             .on("mouseover", function(d) {
                 div.transition()
